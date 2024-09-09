@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# 暂定项目目录结构如下
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+fyTools/
+│
+├── public/                  # 静态资源文件，如 favicon.ico, index.html 等
+│
+├── src/
+│   ├── assets/              # 静态资源：图片、图标等
+│   ├── components/          # 可复用的组件库
+│   │   ├── Header/          # 顶部导航栏组件
+│   │   ├── Footer/          # 页脚组件
+│   │   ├── Sidebar/         # 侧边导航组件
+│   │   └── Button/          # 自定义按钮组件
+│   │
+│   ├── pages/               # 各功能页面模块
+│   │   ├── MindMapEditor/   # 在线脑图编辑模块
+│   │   │   ├── MindMap.js
+│   │   │   └── MindMap.css
+│   │   ├── MarkdownEditor/  # Markdown 编辑模块
+│   │   │   ├── MarkdownEditor.js
+│   │   │   └── MarkdownEditor.css
+│   │   ├── BaseConverter/   # 进制转换模块
+│   │   │   ├── BaseConverter.js
+│   │   │   └── BaseConverter.css
+│   │   ├── Encryption/      # 加解密工具模块
+│   │   │   ├── Encryption.js
+│   │   │   └── Encryption.css
+│   │   └── Home/            # 项目首页
+│   │       ├── Home.js
+│   │       └── Home.css
+│   │
+│   ├── services/            # API 请求服务
+│   │   └── encryptionService.js # 加解密相关的 API 请求
+│   │
+│   ├── utils/               # 工具函数库
+│   │   ├── baseConversion.js   # 进制转换工具函数
+│   │   ├── encryption.js       # 加解密算法函数
+│   │   └── markdownParser.js   # Markdown 解析工具
+│   │
+│   ├── App.js               # 主应用入口
+│   ├── index.js             # React 应用启动文件
+│   └── App.css              # 全局样式
+│
+├── package.json             # 项目依赖和配置信息
+├── .env                     # 环境变量
+└── README.md                # 项目说明
