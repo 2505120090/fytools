@@ -1,0 +1,47 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  .markdown-preview {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  /* 确保 Codemirror 的内容从左上角开始 */
+.cm-editor {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 强制内容从顶部开始 */
+    align-items: flex-start; /* 强制内容从左边开始 */
+  }
+
+  /* 确保 Codemirror 的编辑器容器适合内容 */
+.cm-editor {
+    min-height: 100px; /* 设置一个较小的最小高度，或者使用 auto */
+  }
+  
+
+/* 表格样式 */
+.markdown-preview table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+.markdown-preview th, .markdown-preview td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.markdown-preview th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.markdown-preview tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
