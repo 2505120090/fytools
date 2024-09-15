@@ -50,3 +50,10 @@
 .cm-scroller {
   width: 100%;
 }
+
+.markdown-preview img {
+  max-width: 100%;  /* 图片最大宽度为容器的100% */
+  height: auto;     /* 自动调整图片高度，保持图片比例 */
+  display: block;
+  margin: 0 auto;   /* 居中图片 */
+}

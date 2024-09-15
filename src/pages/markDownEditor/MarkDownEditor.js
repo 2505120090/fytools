@@ -13,7 +13,7 @@ import rehypeHighlight from 'rehype-highlight'; // 引入 rehype-highlight
 import 'highlight.js/styles/github.css'; // 引入 highlight.js 样式
 
 const MarkdownEditor = () => {
-  const [markdownValue, setMarkdownValue] = useState("# Hello Markdown");
+  const [markdownValue, setMarkdownValue] = useState("");
   const editorRef = useRef(null);
 
   // 定义 current 状态，保存当前选中的菜单项
@@ -30,17 +30,61 @@ const MarkdownEditor = () => {
     lineWrapping: true, // 确保长行内容自动换行
   });
 
-  // useEffect(() => {
-  //   if (editorRef.current) {
-  //     const view = setContainer(editorRef.current);
-  //     // 将光标移动到开头
-  //     if (view) {
-  //       view.dispatch({
-  //         selection: { anchor: 0 }
-  //       });
-  //     }
-  //   }
-  // }, [editorRef.current, setContainer]);
+
+  useEffect(() => {
+    const editorElement = editorRef.current;
+
+    if (editorElement) {
+      // 监听粘贴事件
+      editorElement.addEventListener('paste', handlePaste);
+    }
+
+    return () => {
+      if (editorElement) {
+        editorElement.removeEventListener('paste', handlePaste);
+      }
+    };
+  }, []);
+
+  const handlePaste = (event) => {
+    const items = (event.clipboardData || window.clipboardData).items;
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      if (item.type.indexOf('image') !== -1) {
+        const file = item.getAsFile();
+        uploadImage(file); // 上传图片并获取URL
+      }
+    }
+  };
+
+  const uploadImage = async (file) => {
+    // 模拟上传图片的函数
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      // 上传图片到服务器，获取图片URL
+      const response = await fetch('/upload', {
+        method: 'POST',
+        body: formData,
+      });
+      const imageUrl = await response.text();
+
+      // 将图片 URL 插入到 Markdown 内容中
+      insertImageUrl(imageUrl);
+    } catch (error) {
+      console.error('图片上传失败', error);
+    }
+  };
+
+  const insertImageUrl = (url) => {
+    setMarkdownValue((prevMarkdownValue) => {
+      // 使用回调函数获取最新的 markdownValue，保证不会覆盖之前的内容
+      return `${prevMarkdownValue}\n\n![粘贴的图片](${url})`;
+    });
+  };
+  
+
 
   const onClick = (e) => {
     console.log('click ', e);
