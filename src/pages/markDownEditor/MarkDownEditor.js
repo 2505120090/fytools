@@ -30,17 +30,17 @@ const MarkdownEditor = () => {
     lineWrapping: true, // 确保长行内容自动换行
   });
 
-  useEffect(() => {
-    if (editorRef.current) {
-      const view = setContainer(editorRef.current);
-      // 将光标移动到开头
-      if (view) {
-        view.dispatch({
-          selection: { anchor: 0 }
-        });
-      }
-    }
-  }, [editorRef.current, setContainer]);
+  // useEffect(() => {
+  //   if (editorRef.current) {
+  //     const view = setContainer(editorRef.current);
+  //     // 将光标移动到开头
+  //     if (view) {
+  //       view.dispatch({
+  //         selection: { anchor: 0 }
+  //       });
+  //     }
+  //   }
+  // }, [editorRef.current, setContainer]);
 
   const onClick = (e) => {
     console.log('click ', e);
