@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@uiw/react-codemirror": "^4.23.1",
     "antd": "^5.20.6",
+    "crypto-js": "^4.2.0",
     "highlight.js": "^11.10.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -45,5 +46,4 @@
     ]
   },
   "proxy": "http://192.168.31.35:5000"
-
 }

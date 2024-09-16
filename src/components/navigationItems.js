@@ -1,26 +1,35 @@
 // src/navigationItems.js
-import { AppstoreOutlined, FileTextOutlined, NodeIndexOutlined, KeyOutlined, CalculatorOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { Select } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
-export const items = [
-  {
-    label: <Link to="/markdown-editor">Markdown 编辑器</Link>,
-    key: 'markdown',
-    icon: <FileTextOutlined />,
-  },
-  {
-    label: <Link to="/mindmap-editor">脑图编辑器</Link>,
-    key: 'mindmap',
-    icon: <NodeIndexOutlined />,
-  },
-  {
-    label: <Link to="/base-conversion">进制转换工具</Link>,
-    key: 'base-conversion',
-    icon: <CalculatorOutlined />,
-  },
-  {
-    label: <Link to="/encryption-tool">加密/解密工具</Link>,
-    key: 'encryption',
-    icon: <KeyOutlined />,
-  },
-];
+const { Option } = Select;
+
+// 工具选择器组件：定义工具切换逻辑
+export const ToolSelector = () => {
+  const navigate = useNavigate(); // 使用 React Router 的导航功能
+
+  // 处理工具切换逻辑
+  const handleToolChange = (value) => {
+    if (value === 'markdown') {
+      navigate('/markdown-editor');
+    } else if (value === 'mindmap') {
+      navigate('/mindmap-editor');
+    } else if (value === 'drawing') {
+      navigate('/drawing-tool');
+    } else if (value === 'json') {
+      navigate('/json-formatter'); // JSON 格式化页面
+    } else if (value === 'encryption') {
+      navigate('/encryption-tool'); // 加密解密页面
+    }
+  };
+
+  return (
+    <Select defaultValue="markdown" style={{ width: 200 }} onChange={handleToolChange}>
+      <Option value="markdown">Markdown 编辑器</Option>
+      <Option value="mindmap">脑图编辑器</Option>
+      <Option value="drawing">在线画图</Option>
+      <Option value="json">JSON 格式化工具</Option>
+      <Option value="encryption">加密/解密工具</Option>
+    </Select>
+  );
+};
