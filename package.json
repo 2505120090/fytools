@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@ant-design/icons": "^5.4.0",
+    "@ant-design/icons": "^5.5.1",
     "@codemirror/lang-markdown": "^6.2.5",
+    "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -19,6 +20,7 @@
     "react-scripts": "5.0.1",
     "rehype-highlight": "^7.0.0",
     "remark-gfm": "^4.0.0",
+    "sass": "^1.79.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
